@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apDple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta http-equiv="cleartype" content="on">
+    <title>连续订阅会员服务协议</title>
+    <style type="text/css">
+        body {
+            font-size: 14px;
+            margin: 0;
+            padding: 0;
+            font-family: arial, Helvetica, sans-serif, Microsoft YaHei;
+            color: #333;
+            tap-highlight-color: rgba(0, 0, 0, 0);
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            -moz-tap-highlight-color: rgba(0, 0, 0, 0)
+        }
+
+        @media screen and (min-width:480px) {
+
+            html,
+            body,
+            button,
+            input,
+            select,
+            textarea {
+                font-size: 18px
+            }
+        }
+
+        @media screen and (min-width:640px) {
+
+            html,
+            body,
+            button,
+            input,
+            select,
+            textarea {
+                font-size: 24px
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 1rem;
+            padding: .5rem 0 .5rem 0;
+        }
+
+        .text {
+            padding: 1.1rem 5%;
+            font-size: .92rem;
+        }
+
+        .text p,
+        .text div {
+            line-height: 1.5rem;
+            padding-top: .4rem;
+            font-size: .9rem;
+            text-align: justify;
+            position: relative;
+        }
+
+        strong {
+            display: block;
+            font-size: 1rem;
+            padding: 1.2rem 0 0 0rem;
+        }
+
+        .indent {
+            text-indent: 2rem;
+        }
+
+        .text p.level-2 {
+            text-indent: 2rem;
+        }
+
+        .company {
+            font-size: .8rem;
+            margin-top: 20px;
+            text-align: center;
+            font-weight: 500;
+            transform: scale(.8);
+        }
+
+        .exemption {
+            font-weight: 600;
+            text-decoration: underline;
+        }
+
+        .link {
+            font-weight: 600;
+            color: #333333;
+        }
+    </style>
+</head>
+
+<body>
+    <article class="text" id='article' style='display: none;'>
+
+    </article>
+    <script>
+
+        function getQueryStringArgs() {
+            //取得查询字符串并去掉开头的问号
+            var qs = (location.search.length > 0 ? location.search.substring(1) : ""),
+                //保存数据的对象
+                args = {},
+                //取得每一项
+                items = qs.length ? qs.split("&") : [],
+                item = null,
+                name = null,
+                value = null,
+                //在 for 循环中使用
+                i = 0,
+                len = items.length;
+            //逐个将每一项添加到 args 对象中
+            for (i = 0; i < len; i++) {
+                item = items[i].split("=");
+                name = decodeURIComponent(item[0]);
+                value = decodeURIComponent(item[1]);
+                if (name.length) {
+                    args[name] = value;
+                }
+            }
+            return args;
+        }
+
+        !function () {
+            var params = getQueryStringArgs();
+            var _html = document.querySelector('#article');
+            _html.innerHTML = `<h2>连续订阅会员服务协议</h2>
+        
+        <p class="indent">1.订阅服务:${params && params.appname || ''}VIP连续包年(12个月)</p>
+        <p class="indent">2.订阅价格:连续包年产品为${params && params.price || ''}元/年</p>
+        <p class="indent">3.付款:用户确认购买并付款后计入iTunes账户</p>
+        <p class="indent">4.苹果iTunes账户会在到期前24小时内扣费,扣费成功后订阅周期顺延一个订阅周期</p>
+        <p class="indent">5.如需取消订阅,请打开苹果手机"设置"一进入"iTunes Store与App Store"一点击"Apple ID",选择"查看Apple ID",进入“账户设置"页面,点击"订阅",选择${params && params.appname || ''}VIP取消订阅。如果未在订阅期结束的至少24小时前关闭订阅,此订阅将会自动续订</p>
+        `;
+            _html.style.display = 'block'
+        }()
+    </script>
+</body>
+
+</html>
